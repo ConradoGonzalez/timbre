@@ -33,6 +33,6 @@ export const ALBUMS = [
         year: "2008",
         image: "public/img/71LQ34+Jj+L._SL1061_.jpg",
         user: 'MichelleF',
-        caption: "Revisiting this guy! What insane guitar tones."
+        caption: "Revisiting this! What insane guitar tones."
     }
 ];

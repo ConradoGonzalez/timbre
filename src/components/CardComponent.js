@@ -7,8 +7,8 @@ export default class CardComponent extends Component {
         super(props);
         
         this.state = {
-          albums: ALBUMS
-        }
+          albums: ALBUMS,
+        };
       }
 
     render() {

@@ -3,13 +3,12 @@ import CardComponent from './components/CardComponent';
 import HeaderComponent from './components/HeaderComponent';
 import NavbarComponent from './components/NavbarComponent';
 
-
 function App() {
   return (
     <div className="App">
       <NavbarComponent />
       <HeaderComponent />
-      <CardComponent />
+      <CardComponent year={1976}/>
     </div>
   );
 }
