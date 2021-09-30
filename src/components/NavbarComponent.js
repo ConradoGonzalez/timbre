@@ -21,9 +21,10 @@ export default class NavbarComponent extends Component {
     render() {
         return (
             <div>
-                <Navbar dark sticky="top" color="dark bg-dark" expand="md">
+                <Navbar dark  color="dark bg-dark" expand="md">
                     <div className="container">
-                        <NavbarBrand className=" mr-auto navbar-brand">
+                        <div className="row">
+                        <NavbarBrand className="mr-auto navbar-brand col text-left">
                             <i className="fa fa-lg fa-headphones text-primary" ></i>
                         </NavbarBrand>
 
@@ -50,26 +51,28 @@ export default class NavbarComponent extends Component {
                             </FormGroup>
                         </Form>
 
-                        <NavbarToggler onClick={this.toggleNav} />
+                        <NavbarToggler onClick={this.toggleNav}/>
+                        
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
-                                <NavItem>
+                                <NavItem className="d-flex flex-row-reverse">
                                     <NavLink>
-                                        <i className="fa fa-lg fa-home text-primary" aria-hidden="true"></i>
+                                    <a href="#" className="btn btn-dark"><i className="fa fa-lg fa-home text-primary" aria-hidden="true"></i></a>
                                     </NavLink>
                                 </NavItem>
-                                <NavItem>
+                                <NavItem className="d-flex flex-row-reverse">
                                     <NavLink>
-                                        <i className="fa fa-lg fa-heart text-primary" aria-hidden="true"></i>
+                                    <a href="#" className="btn btn-dark"><i className="fa fa-lg fa-heart text-primary" aria-hidden="true"></i></a>
                                     </NavLink>
                                 </NavItem>
-                                <NavItem>
+                                <NavItem className="d-flex flex-row-reverse">
                                     <NavLink>
-                                        <i className="fa fa-lg fa-sign-out text-primary" aria-hidden="true"></i>
+                                    <a href="#" className="btn btn-dark"><i className="fa fa-lg fa-sign-out text-primary" aria-hidden="true"></i></a>
                                     </NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>
+                        </div>
                     </div>
                 </Navbar>
             </div>
