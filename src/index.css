@@ -12,3 +12,11 @@ code {
     monospace;
 }
 
+.album-icon {
+  margin-left: 4px;
+}
+
+.card-img {
+  height: 700px;
+  width: 700px;
+}

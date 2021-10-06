@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react'
 import {
     Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     Button, ModalHeader, ModalBody,
-    Form, FormGroup, Input, Label
+    Form, FormGroup, Input, Label, 
 } from 'reactstrap';
 import Modal from 'react-modal';
 
@@ -33,35 +33,33 @@ const HeaderComponent = () => {
 
         <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
             <div className="container">
-                    <ModalHeader className="col-12">
-                        <h2>Create New Post</h2>
-                    </ModalHeader >
-
+                <ModalHeader className="col-12">
+                    <h2>Create New Post</h2>
+                </ModalHeader >
                 <ModalBody className="col-md-10">
                     <Form>
                         <FormGroup className="row mt-10">
-                            <Label for="artist" class="col-md-2 ">Artist</Label>
+                            <Label for="artist" className="col-md-2 ">Artist</Label>
                             <div className="col-md-10">
-                                <input type="text" class="form-control" id="artist" name="artist" placeholder="Artist" />
+                                <input type="text" className="form-control" id="artist" name="artist" placeholder="Artist" />
                             </div>
                         </FormGroup>
                         <FormGroup className="row">
-                            <Label for="albumTitle" class="col-md-2 ">Album Title</Label>
+                            <Label for="albumTitle" className="col-md-2 ">Album Title</Label>
                             <div className="col-md-10">
-                                <input type="text" class="form-control" id="albumTitle" name="albumTitle" placeholder="Album Title" />
+                                <input type="text" className="form-control" id="albumTitle" name="albumTitle" placeholder="Album Title" />
                             </div>
                         </FormGroup>
                         <FormGroup className="row">
-                            <Label for="year" class="col-md-2 ">Year</Label>
+                            <Label for="year" className="col-md-2 ">Year</Label>
                             <div className="col-md-10">
-                                <input type="text" class="form-control" id="year" name="year" placeholder="Year" />
+                                <input type="text" className="form-control" id="year" name="year" placeholder="Year" />
                             </div>
                         </FormGroup>
-
                         <FormGroup className="row">
-                            <Label for="genre" class="col-md-2 ">Genre</Label>
+                            <Label for="genre" className="col-md-2 ">Genre</Label>
                             <div className="col-md-10">
-                                <select class="form-control" id="genre" name="genre" placeholder="Genre">
+                                <select className="form-control" id="genre" name="genre" placeholder="Genre">
                                     <option>Rock</option>
                                     <option>Alternative</option>
                                     <option>Jazz</option>
@@ -75,25 +73,23 @@ const HeaderComponent = () => {
                         </FormGroup>
 
                         <FormGroup className="row">
-                            <label for="albumArt" class="col-md-2 ">Album Art</label>
+                            <label for="albumArt" className="col-md-2 ">Album Art</label>
                             <div className="col-md-10">
-                                <input type="file" class="form-control-file" id="albumArt" />
+                                <input type="file" className="form-control-file" id="albumArt" />
                             </div>
                         </FormGroup>
-
                         <FormGroup className="row">
-                            <label for="caption" class="col-md-2 ">Caption</label>
+                            <label for="caption" className="col-md-2 ">Caption</label>
                             <div className="col-md-10">
-                                <textarea class="form-control" id="caption" name="caption" rows="2" placeholder="Caption"></textarea>
+                                <textarea className="form-control" id="caption" name="caption" rows="2" placeholder="Caption"></textarea>
                             </div>
                         </FormGroup>
                         <FormGroup className="row">
                             <div className="offset-md-2 col-md-10">
-                                <button onClick={() => setModalIsOpen(false)} type="submit" className="btn btn-primary">Post!</button>
+                                <button onClick={() => setModalIsOpen(false)} 
+                                type="submit" className="btn btn-primary">Post!</button>
                             </div>
                         </FormGroup>
-
-
                     </Form>
                 </ModalBody>
             </div>
