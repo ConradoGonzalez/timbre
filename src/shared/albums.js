@@ -7,8 +7,7 @@ export const ALBUMS = [
         image: "/img/71LQ34+Jj+L._SL1061_.jpg",
         user: 'ConradG',
         caption: "The legendary quartet! A jazz classic!",
-        favorite: false,
-        comment: []
+        favorite: false
     },
     {
         id: 1,
