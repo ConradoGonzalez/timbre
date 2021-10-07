@@ -34,7 +34,7 @@ const HeaderComponent = () => {
         <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
             <div className="container">
                 <ModalHeader className="col-12">
-                    <h2>Create New Post</h2>
+                    <div>Create New Post</div>
                 </ModalHeader >
                 <ModalBody className="col-md-10">
                     <Form>
@@ -87,7 +87,7 @@ const HeaderComponent = () => {
                         <FormGroup className="row">
                             <div className="offset-md-2 col-md-10">
                                 <button onClick={() => setModalIsOpen(false)} 
-                                type="submit" className="btn btn-primary">Post!</button>
+                                type="submit" className="btn btn-info">Post!</button>
                             </div>
                         </FormGroup>
                     </Form>

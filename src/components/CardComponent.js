@@ -24,19 +24,11 @@ export default function CardComponent() {
         return
     }
 
-    const alignProperComment = (id) => {
+    const alignProperComment = (albumid) => {
 
-        const ProperComment = comments.map((comment) => {
-            if (
-                comment.albumId === id
-            ) {
-                comment.text = comment.text
-            }
-            return comment;
-        })
+        const ProperComment = comments.filter((comment) => comment.albumId === albumid)
 
-        setComments(ProperComment);
-        return
+        return ProperComment
     }
 
     return (
@@ -47,8 +39,8 @@ export default function CardComponent() {
                         {albums.map((album) => {
                             return (
                                 <Card className="card col my-5" key={album.id}>
-                                    <CardHeader className="row card-header">
-                                        <p className="col-6 text-left">{album.album}</p>
+                                    <CardHeader className="row card-header bg-dark text-light">
+                                        <p className="col-6 text-left album-title">{album.album}</p>
                                         <p className="col text-right">{album.year}</p>
                                         <p className="col-12 text-right">{album.artist}</p>
                                     </CardHeader>
@@ -56,7 +48,7 @@ export default function CardComponent() {
                                         <CardImg className="card-img" src={album.image} alt="Album Art" />
                                     </CardBody>
                                     <CardFooter className="row card-footer">
-                                        <p className="col text-left card-text">{album.user}  {album.caption}</p>
+                                        <p className="col text-left card-text"><strong>{album.user}</strong>  {album.caption}</p>
                                         <Button onClick={() => updateAlbumLike(album.id)}
                                             className="col-1 btn btn-dark album-icon">
                                             <i className={album.favorite ? 'fa fa-heart' : 'fa fa-heart-o'} aria-hidden="true"></i>
@@ -66,16 +58,16 @@ export default function CardComponent() {
                                         </Button>
                                     </CardFooter>
                                     
-                                    {comments.map((comment) => {
-                                        //alignProperComment(comment.albumId);
+                                    {alignProperComment(album.id).map((comment) => {
+                                        
 
                                         return (
                                             <CardFooter
                                                 style={show ? { display: "block" } : { display: 'none' }}
                                                 className="row collapse">
-                                                <div className="col text-left">
-                                                    {comment.user}: {comment.text}
-                                                </div>
+                                                <p className="col text-left">
+                                                    <strong>{comment.user}</strong> {comment.text}
+                                                </p>
                                             </CardFooter>
                                         );
                                     }
@@ -83,7 +75,7 @@ export default function CardComponent() {
 
                                     <CardFooter className="row card-footer">
                                         <Input className="col album-icon" placeholder="Add a comment..." />
-                                        <Button className="col-2 btn btn-primary album-icon">Post</Button>
+                                        <Button className="col-2 btn btn-info album-icon">Post</Button>
                                     </CardFooter>
                                 </Card>
                             )

@@ -36,7 +36,7 @@ export default class NavbarComponent extends Component {
             <div>
                 <Modal isOpen={this.state.isModalOpen}>
                     <ModalHeader>
-                        <h2>Log In</h2>
+                        <div>Log In</div>
                     </ModalHeader>
                     <ModalBody>
                         <Form>
@@ -49,7 +49,7 @@ export default class NavbarComponent extends Component {
                         </Form>
                     </ModalBody>
                     <ModalFooter>
-                        <Button className="btn btn-black">Login</Button>
+                        <Button className="btn btn-info">Login</Button>
                         <Button className="btn btn-secondary">Create Account</Button>
                     </ModalFooter>
                 </Modal>
@@ -59,7 +59,9 @@ export default class NavbarComponent extends Component {
                     <div className="container">
                         <div className="row">
                             <NavbarBrand className="mr-auto navbar-brand col text-left">
-                                <i className="fa fa-lg fa-headphones text-primary" ></i>
+                                <a className="btn btn-dark">
+                                    <i className="fa fa-lg fa-headphones text-info" ></i>
+                                    </a>
                             </NavbarBrand>
 
                             <Form className="d-flex">
@@ -91,17 +93,17 @@ export default class NavbarComponent extends Component {
                                 <Nav navbar>
                                     <NavItem className="d-flex flex-row-reverse">
                                         <NavLink>
-                                            <a href="#" className="btn btn-dark"><i className="fa fa-lg fa-home text-primary" aria-hidden="true"></i></a>
+                                            <a href="#" className="btn btn-dark"><i className="fa fa-lg fa-home text-info" aria-hidden="true"></i></a>
                                         </NavLink>
                                     </NavItem>
                                     <NavItem className="d-flex flex-row-reverse">
                                         <NavLink>
-                                            <a href="#" className="btn btn-dark"><i className="fa fa-lg fa-heart text-primary" aria-hidden="true"></i></a>
+                                            <a href="#" className="btn btn-dark"><i className="fa fa-lg fa-heart text-info" aria-hidden="true"></i></a>
                                         </NavLink>
                                     </NavItem>
                                     <NavItem className="d-flex flex-row-reverse">
                                         <NavLink>
-                                            <a href="#" className="btn btn-dark" onClick={this.toggleModal}><i className="fa fa-lg fa-sign-out text-primary" aria-hidden="true"></i></a>
+                                            <a href="#" className="btn btn-dark" onClick={this.toggleModal}><i className="fa fa-lg fa-sign-out text-info" aria-hidden="true"></i></a>
                                         </NavLink>
                                     </NavItem>
                                 </Nav>
