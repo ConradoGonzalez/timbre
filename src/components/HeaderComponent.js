@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import {
     Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     Button, ModalHeader, ModalBody,
@@ -9,6 +9,12 @@ import Modal from 'react-modal';
 const HeaderComponent = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    
+    // const handlePost = (event) => {
+    //     alert(`Artist: ${event.artist.value}`);
+    //     setModalIsOpen(true);
+    //     event.preventDefault();
+    // }
 
     return <React.Fragment>
         <Jumbotron fluid>
@@ -19,13 +25,14 @@ const HeaderComponent = () => {
                         <h1>TIMBRE</h1>
                         <h2>(<strong>tam</strong>·br)</h2>
                         <h3>Connect with fellow music lovers all over the world!</h3>
-                        <a onClick={() => setModalIsOpen(true)}>
+                       
                             <i
-                                className="fa fa-5x fa-play-circle fa-primary" aria-hidden="true"
+                                onClick={() => setModalIsOpen(true)}
+                                className="fa fa-5x fa-play-circle text-info" aria-hidden="true"
                                 data-toggle="tooltip" data-placement="bottom" data-html="true" title="Create New Post!">
 
                             </i>
-                        </a>
+                       
                     </div>
                 </div>
             </div>
@@ -37,11 +44,12 @@ const HeaderComponent = () => {
                     <div>Create New Post</div>
                 </ModalHeader >
                 <ModalBody className="col-md-10">
-                    <Form>
-                        <FormGroup className="row mt-10">
-                            <Label for="artist" className="col-md-2 ">Artist</Label>
+                    <Form /*onSubmit={handlePost}*/>
+                        <FormGroup className="row">
+                            <Label htmlFor="artist" className="col-md-2 ">Artist</Label>
                             <div className="col-md-10">
-                                <input type="text" className="form-control" id="artist" name="artist" placeholder="Artist" />
+                                <Input type="text" id="artist" name="artist" placeholder="Artist"
+                                    /*innerRef={input => artist = input}*/ />
                             </div>
                         </FormGroup>
                         <FormGroup className="row">
