@@ -58,7 +58,7 @@ export default class NavbarComponent extends Component {
                 <Navbar dark color="dark bg-dark" expand="md">
                     <div className="container">
                         <div className="row">
-                            <NavbarBrand className="mr-auto navbar-brand col text-left">
+                            <NavbarBrand className="mr-auto navbar-brand text-left">
                                 <a className="btn btn-dark">
                                     <i className="fa fa-lg fa-headphones text-info" ></i>
                                     </a>

@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react'
 import {
     Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     Button, ModalHeader, ModalBody,
-    Form, FormGroup, Input, Label, 
+    Form, FormGroup, Input, Label,
 } from 'reactstrap';
 import Modal from 'react-modal';
 
@@ -86,8 +86,8 @@ const HeaderComponent = () => {
                         </FormGroup>
                         <FormGroup className="row">
                             <div className="offset-md-2 col-md-10">
-                                <button onClick={() => setModalIsOpen(false)} 
-                                type="submit" className="btn btn-info">Post!</button>
+                                <button onClick={() => setModalIsOpen(false)}
+                                    type="submit" className="btn btn-info">Post!</button>
                             </div>
                         </FormGroup>
                     </Form>
