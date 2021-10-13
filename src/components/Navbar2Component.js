@@ -41,12 +41,13 @@ export default function Navbar2Component() {
                     <NavbarBrand href="">
                         <i className="fa fa-lg fa-headphones text-info" ></i>
                     </NavbarBrand>
-
+                    
                     <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
 
                         <Nav className="ml-auto" navbar>
-                            <NavItem>
+                            
+                            <NavItem className="searchbar">
                                 <Form inline>
                                     <FormGroup>
                                         <Input type="select" name="select" id="exampleSelect" className="mr-1">
@@ -57,10 +58,7 @@ export default function Navbar2Component() {
                                         </Input>
                                     </FormGroup>
                                     <FormGroup>
-                                        <Input type="navrefine" name="navrefine" id="navrefine" placeholder="Search" className="mr-1" />
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Button type="submit"><i className="fa fa-lg fa-search fa-fw" aria-hidden="true"></i></Button>
+                                        <Input type="navrefine" name="navrefine" id="navrefine" placeholder="&#xF002; Search" className="fontAwesome mr-1" />
                                     </FormGroup>
                                 </Form>
                             </NavItem>
@@ -74,6 +72,7 @@ export default function Navbar2Component() {
                                     <i className="fa fa-lg fa-heart text-info" aria-hidden="true" />
                                 </NavLink>
                             </NavItem>
+                          
                             {/* <NavItem>
                                 <NavLink href="" className="nav-link">
                                     <i onClick={() => setModalIsOpen(true)} className="fa fa-lg fa-sign-out text-info" aria-hidden="true" />

@@ -2,7 +2,7 @@ export const COMMENTS = [
     {
         id: 0,
         albumId: 0,
-        text: "What a magnificent view!",
+        text: "Cool album!",
         user: "ConradG",
         date: "2018-10-25T16:30Z"
     },

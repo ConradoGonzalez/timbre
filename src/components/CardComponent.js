@@ -33,9 +33,9 @@ export default function CardComponent() {
 
     return (
         <div>
-            <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
-                <div className="row album-row">
-                    <div className="col">
+            <div className="container">
+                <div className="row album-row" style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className="col-sm-8">
                         {albums.map((album) => {
                             return (
                                 <Card className="card col my-5" key={album.id}>
@@ -45,7 +45,7 @@ export default function CardComponent() {
                                         <p className="col-12 text-right">{album.artist}</p>
                                     </CardHeader>
                                     <CardBody className="card-img-container">
-                                        <CardImg className="card-img" src={album.image} alt="Album Art" />
+                                        <CardImg src={album.image} alt="Album Art" />
                                     </CardBody>
                                     <CardFooter className="row card-footer">
                                         <p className="col text-left card-text"><strong>{album.user}</strong>  {album.caption}</p>
@@ -53,13 +53,15 @@ export default function CardComponent() {
                                             className="col-1 btn btn-dark album-icon">
                                             <i className={album.favorite ? 'fa fa-heart' : 'fa fa-heart-o'} aria-hidden="true"></i>
                                         </Button>
-                                        <Button onClick={() => setShow(!show)} className="col-1 btn btn-dark album-icon">
+                                        <Button onClick={() => setShow(!show)}
+                                                
+                                        className="col-1 btn btn-dark album-icon">
                                             <i className="fa fa-lg fa-angle-down" ></i>
                                         </Button>
                                     </CardFooter>
-                                    
+
                                     {alignProperComment(album.id).map((comment) => {
-                                        
+
 
                                         return (
                                             <CardFooter
