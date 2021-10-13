@@ -7,7 +7,9 @@ export default function CardComponent() {
 
     const [albums, setAlbums] = useState(ALBUMS)
     const [comments, setComments] = useState(COMMENTS)
-    const [show, setShow] = useState(false);
+    //const [show, setShow] = useState(false);
+    // const [selectedAlbum, setSelectedAlbum] = useState('');
+    const [selectedAlbums, setSelectedAlbums] = useState([]);
 
     const updateAlbumLike = (id) => {
 
@@ -29,6 +31,14 @@ export default function CardComponent() {
         const ProperComment = comments.filter((comment) => comment.albumId === albumid)
 
         return ProperComment
+    }
+
+    const updateSelectedAlbums = id => {
+        if (selectedAlbums.includes(id)) {
+            setSelectedAlbums(selectedAlbums.filter(albumId => albumId !== id));
+        } else {
+            setSelectedAlbums([...selectedAlbums, id]);
+        }
     }
 
     return (
@@ -53,19 +63,20 @@ export default function CardComponent() {
                                             className="col-1 btn btn-dark album-icon">
                                             <i className={album.favorite ? 'fa fa-heart' : 'fa fa-heart-o'} aria-hidden="true"></i>
                                         </Button>
-                                        <Button onClick={() => setShow(!show)}
-                                                
+                                        <Button onClick={() => updateSelectedAlbums(album.id)}
                                         className="col-1 btn btn-dark album-icon">
                                             <i className="fa fa-lg fa-angle-down" ></i>
                                         </Button>
                                     </CardFooter>
 
                                     {alignProperComment(album.id).map((comment) => {
-
-
+                                        let showComments = false;
+                                        if (selectedAlbums.includes(album.id)) {
+                                            showComments = true;
+                                        }
                                         return (
                                             <CardFooter
-                                                style={show ? { display: "block" } : { display: 'none' }}
+                                                style={ showComments ? { display: "block" } : { display: 'none' }}
                                                 className="row collapse">
                                                 <p className="col text-left">
                                                     <strong>{comment.user}</strong> {comment.text}
