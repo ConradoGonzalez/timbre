@@ -5,10 +5,17 @@ import {
     Form, FormGroup, Input, Row
 } from 'reactstrap';
 import Modal from 'react-modal'
-export default function Navbar2Component() {
+
+export default function Navbar3Component({ loggedUser }) {
+
     const [isOpen, setIsOpen] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen);
+
+    const handleLogin = () => {
+        setModalIsOpen(false)
+        loggedUser('Conradg');
+    }
     return (
         <React.Fragment>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
@@ -26,7 +33,9 @@ export default function Navbar2Component() {
                     </Form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button className="btn btn-info" onClick={() => setModalIsOpen(false)}>Login</Button>
+                    <Button className="btn btn-info"
+                        onClick={() => handleLogin()}
+                    >Login</Button>
                     <Button className="btn btn-secondary" onClick={() => setModalIsOpen(false)}>Create Account</Button>
                 </ModalFooter>
             </Modal>

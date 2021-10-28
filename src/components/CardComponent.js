@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
-import { Card, CardBody, CardFooter, CardHeader, CardImg, Button, Input } from 'reactstrap';
+import { Card, CardBody, CardFooter, CardHeader, CardImg, Button, Input, Form } from 'reactstrap';
 import { ALBUMS } from '../shared/albums';
-import { COMMENTS } from '../shared/comments';
+import DisplayComments from './DisplayComments';
+
+
 
 export default function CardComponent() {
 
     const [albums, setAlbums] = useState(ALBUMS)
-    const [comments, setComments] = useState(COMMENTS)
-    //const [show, setShow] = useState(false);
-    // const [selectedAlbum, setSelectedAlbum] = useState('');
     const [selectedAlbums, setSelectedAlbums] = useState([]);
 
     const updateAlbumLike = (id) => {
@@ -24,13 +23,6 @@ export default function CardComponent() {
 
         setAlbums(updatedAlbums);
         return
-    }
-
-    const alignProperComment = (albumid) => {
-
-        const ProperComment = comments.filter((comment) => comment.albumId === albumid)
-
-        return ProperComment
     }
 
     const updateSelectedAlbums = id => {
@@ -61,35 +53,14 @@ export default function CardComponent() {
                                         <p className="col text-left card-text"><strong>{album.user}</strong>  {album.caption}</p>
                                         <Button onClick={() => updateAlbumLike(album.id)}
                                             className="col-1 btn btn-dark album-icon">
-                                            <i className={album.favorite ? 'fa fa-heart' : 'fa fa-heart-o'} aria-hidden="true"></i>
+                                            <i className={album.favorite ? 'fa fa-heart' : 'fa fa-heart-o'} aria-hidden="true" />
                                         </Button>
                                         <Button onClick={() => updateSelectedAlbums(album.id)}
-                                        className="col-1 btn btn-dark album-icon">
-                                            <i className="fa fa-lg fa-angle-down" ></i>
+                                            className="col-1 btn btn-dark album-icon">
+                                            <i className="fa fa-lg fa-caret-down" />
                                         </Button>
                                     </CardFooter>
-
-                                    {alignProperComment(album.id).map((comment) => {
-                                        let showComments = false;
-                                        if (selectedAlbums.includes(album.id)) {
-                                            showComments = true;
-                                        }
-                                        return (
-                                            <CardFooter
-                                                style={ showComments ? { display: "block" } : { display: 'none' }}
-                                                className="row collapse">
-                                                <p className="col text-left">
-                                                    <strong>{comment.user}</strong> {comment.text}
-                                                </p>
-                                            </CardFooter>
-                                        );
-                                    }
-                                    )}
-
-                                    <CardFooter className="row card-footer">
-                                        <Input className="col album-icon" placeholder="Add a comment..." />
-                                        <Button className="col-2 btn btn-info album-icon">Post</Button>
-                                    </CardFooter>
+                                    <DisplayComments albumid={album.id} selectedAlbums={selectedAlbums} />
                                 </Card>
                             )
                         })}
